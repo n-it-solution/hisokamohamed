@@ -1,0 +1,54 @@
+<!--
+  Generated template for the QuranPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>quran</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content no-padding>
+  <ion-list no-padding>
+    <span *ngFor="let cat of result">
+      <button ion-item (click)="open(cat.id)" [ngClass]="{'selected': select_id === cat.id }">
+      <ion-row>
+        <ion-col col-1>
+          <img src="{{cat.icon_url}}">
+        </ion-col>
+        <ion-col col-10 text-left text-center>
+          {{ cat.title }}
+        </ion-col>
+        <ion-col col-1>
+          <ion-icon name="ios-arrow-forward-outline"></ion-icon>
+        </ion-col>
+      </ion-row>
+    </button>
+    </span>
+  </ion-list>
+  <div style="position: absolute;bottom: 0;background-color: #262626;color: white;width: 100%">
+    <ion-row>
+      <ion-col col-2>
+        00:00
+      </ion-col>
+      <ion-col col-8><input type="range" min="1" max="100" value="37" style="width: 100%;"></ion-col>
+      <ion-col col-2>00:00</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-1 padding-vertical><ion-icon name="repeat" style="font-size: 30px;"></ion-icon></ion-col>
+      <ion-col col-2 offset-3 padding-vertical text-right><ion-icon name="rewind" style="font-size: 20px;"></ion-icon></ion-col>
+      <ion-col col-1 padding-vertical><ion-icon name="pause" style="font-size: 30px;"></ion-icon></ion-col>
+      <ion-col col-2 padding-vertical text-left><ion-icon name="fastforward" style="font-size: 20px;"></ion-icon></ion-col>
+          <!--<ion-col col-3 text-right><img src="../../assets/imgs/left.png" padding-vertical></ion-col>-->
+          <!--<ion-col col-5><img src="../../assets/imgs/pause.png"></ion-col>-->
+          <!--<ion-col col-3 text-left><img src="../../assets/imgs/right.png" padding-vertical></ion-col>-->
+      <ion-col col-1 offset-2 padding-vertical padding-bottom><ion-icon name="cloud-download" style="font-size: 20px;"></ion-icon></ion-col>
+      <!--<ion-col col-1 offset-3 padding-vertical style="text-align: right;justify-content: flex-end;"><img src="../../assets/imgs/download.png"></ion-col>-->
+    </ion-row>
+  </div>
+</ion-content>
