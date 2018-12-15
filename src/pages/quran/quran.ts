@@ -3,7 +3,8 @@ import { Observable } from 'rxjs/Observable';
 import { HttpClient } from '@angular/common/http';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {QuranAudioPage} from "../quran-audio/quran-audio";
-
+import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
+import { File } from '@ionic-native/file';
 /**
  * Generated class for the QuranPage page.
  *
@@ -44,7 +45,19 @@ nn(value){
 nn1(value){
     value.toFixed(0)
 }
-  constructor(public navCtrl: NavController, public navParams: NavParams, public httpClient: HttpClient) {
+    fileTransfer: FileTransferObject = this.transfer.create();
+    download() {
+        const url = 'http://www.ovh.net/files/100Mb.dat';
+        this.fileTransfer.download(url, this.file.externalRootDirectory +
+            '/Download/' + 'audio11.jpg').then((entry) => {
+            alert('download complete: ' + entry.toURL());
+            alert(url);
+        }, (error) => {
+            alert(error);
+            // handle error
+        });
+    }
+  constructor(public navCtrl: NavController, public navParams: NavParams, public httpClient: HttpClient,private transfer: FileTransfer, private file: File) {
       console.log('Quran');
       this.select_id = 144;
       function myFunction() {
@@ -67,6 +80,7 @@ nn1(value){
       // test data
       // console.log(JSON.parse(window.localStorage.result_data));
       // this.result = (JSON.parse(window.localStorage.result_data));
+      this.download();
   }
 
   ionViewDidLoad() {

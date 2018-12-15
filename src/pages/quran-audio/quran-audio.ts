@@ -33,16 +33,16 @@ export class QuranAudioPage {
         const minutes: number = (value.toFixed(0) - hours * 60);
 
         if (hours < 10 && minutes < 10) {
-            return '0' + hours + ':0' + (value.toFixed(0) - hours * 60);
+            return '' + hours + ':0' + (value.toFixed(0) - hours * 60);
         }
         if (hours > 10 && minutes > 10) {
-            return '0' + hours + ':' + (value.toFixed(0) - hours * 60);
+            return '' + hours + ':' + (value.toFixed(0) - hours * 60);
         }
         if (hours > 10 && minutes < 10) {
             return hours + ':0' + (value.toFixed(0) - hours * 60);
         }
         if (minutes > 10) {
-            return '0' + hours + ':' + (value.toFixed(0) - hours * 60);
+            return '' + hours + ':' + (value.toFixed(0) - hours * 60);
         }
     }
     open(url){
